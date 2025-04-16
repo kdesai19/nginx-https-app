@@ -1,0 +1,24 @@
+Create an app via pipeline and scan in prisma cloud before deploying
+
+Steps :-
+
+1. Created folder with name - nginx-https-app (folder path - C:\Users\ketanramesh.desai\Desktop\nginx-https-app)
+
+2. Opened the folder in VScode and created 4 files 
+   2.1 - index2.html file
+   2.2 - nginx.conf file 
+   2.3 - dockerfile 
+   2.4 - created certs folder to store self-signed certificates
+   2.5 - created self signed certificates ( used Git bash to create ) 
+         (cmd used in gitbash to go to that path - cd /c/Users/ketanramesh.desai/Desktop/nginx-https-app) 
+   2.6 - created cert.pem and key.pm in certs folder 
+         ( cmd used - $ openssl req -x509 -nodes -days 365 -newkey rsa:2048   -keyout certs/key.pem -out            		   certs/cert.pem   -subj "//CN=localhost" )
+
+3. 
+
+   
+
+
+
+
+
