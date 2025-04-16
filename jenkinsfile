@@ -1,0 +1,32 @@
+pipeline {
+  agent any
+
+  environment {
+    IMAGE_NAME = 'nginx-https-app:latest'
+  }
+
+  stages {
+    stage('Checkout') {
+      steps { checkout scm }
+    }
+
+    stage('Build Docker Image') {
+      steps {
+        sh 'docker build -t $IMAGE_NAME .'
+      }
+    }
+
+    stage('(Optional) Prisma Scan') {
+      steps {
+        // You can integrate Prisma CLI here if you want
+        echo 'Skipping scan for now.'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        sh 'docker run -d -p 443:443 $IMAGE_NAME'
+      }
+    }
+  }
+}
